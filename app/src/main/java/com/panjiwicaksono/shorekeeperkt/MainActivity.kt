@@ -46,8 +46,8 @@ class MainActivity : ComponentActivity() {
 @Preview(showSystemUi = false)
 @Composable
 fun MainWindow(modifier: Modifier = Modifier){
-    Box(modifier = modifier.background(Color.Black).fillMaxSize()){
-        Column(modifier = modifier.padding(top= 45.dp)) {
+    Box(modifier = modifier.background(Color.White).fillMaxSize()){
+        Column(modifier = modifier.padding(top= 30.dp)) {
             Image(
                 painter = painterResource(R.drawable.intersection),
                 contentDescription = "Shorekeeper",
@@ -58,7 +58,7 @@ fun MainWindow(modifier: Modifier = Modifier){
                 text = stringResource(R.string.header),
                 fontSize = 35.sp,
                 modifier = modifier.padding(start = 20.dp, end = 20.dp, top = 20.dp),
-                color = Color.White,
+      //          color = Color.White,
                 fontFamily = FontFamily.Serif
             )
 
@@ -67,13 +67,12 @@ fun MainWindow(modifier: Modifier = Modifier){
                     text = stringResource(R.string.h1),
                     modifier.padding(start = 120.dp, end = 20.dp, top = 10.dp).align(Alignment.CenterEnd),
                     fontSize = 11.sp,
-                    color = Color.White,
+       //             color = Color.White,
                 )
                 Image(
                     painter = painterResource(R.drawable.sk1),
                     contentDescription = null,
                     modifier.padding(start = 20.dp, top = 16.dp).size(90.dp).align(Alignment.CenterStart)
-                        .clip(RoundedCornerShape(topStart = 16.dp, bottomEnd = 16.dp, bottomStart = 16.dp))
                 )
             }
 
@@ -81,24 +80,37 @@ fun MainWindow(modifier: Modifier = Modifier){
                 Image(
                     painter = painterResource(R.drawable.sk2),
                     contentDescription = null,
-                    modifier = modifier.size(90.dp).align(Alignment.CenterEnd).clip(
-                        RoundedCornerShape(topEnd = 16.dp, bottomEnd = 16.dp, bottomStart = 16.dp)
-                    )
+                    modifier = modifier.size(90.dp).align(Alignment.CenterEnd)
                 )
                 Text(
                     text = stringResource(R.string.h2),
                     modifier = modifier.padding(end = 90.dp),
                     fontSize = 11.sp,
-                    color = Color.White
+   //                 color = Color.White
                 )
             }
-        }
-        Row(modifier.fillMaxWidth().align(Alignment.BottomCenter).padding(bottom = 30.dp),
-            horizontalArrangement = Arrangement.Center,
-        ){
-            Image(painter = painterResource(R.drawable.studio), contentDescription = null, modifier = modifier.size(41.dp).padding(top = 2.dp))
-            Image(painter = painterResource(R.drawable.kotlin), contentDescription = null, modifier = modifier.size((41.dp)).padding(top = 5.dp) )
-        }
 
+            Box(modifier = modifier
+                .fillMaxWidth()
+                .fillMaxHeight()
+                .padding(top = 10.dp, start = 20.dp, end = 20.dp, bottom = 80.dp)
+                .background(Color.White)
+            ) {
+                Row(modifier = modifier.padding(16.dp).fillMaxWidth()){
+                    Text(
+                        text = "Gallery",
+                        fontFamily = FontFamily.Monospace
+                    )
+                }
+                Row(modifier = modifier.padding(start = 16.dp, end = 16.dp, top = 40.dp), horizontalArrangement = Arrangement.spacedBy(12.dp)){
+                    Image(painter = painterResource(R.drawable.sk3), contentDescription = null, modifier = modifier.size(100.dp))
+                    Image(painter = painterResource(R.drawable.sk1), contentDescription = null, modifier = modifier.size(100.dp))
+                    Image(painter = painterResource(R.drawable.sk4), contentDescription = null, modifier = modifier.size(100.dp))
+                }
+                Row(modifier = modifier.padding(start = 16.dp, end = 16.dp, top = 40.dp).align(Alignment.BottomCenter)){
+                    Image(painter = painterResource(R.drawable.sk5), null, modifier = modifier.padding(bottom = 16.dp))
+                }
+            }
+        }
     }
 }
